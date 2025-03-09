@@ -17,7 +17,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @cap a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt         @shsp           @gmng rmet rctl
+  lctl lalt lmet         @shsp           @gmng rmet rctl
 )
 
 (deflayer gaming ;;{{{1
@@ -25,7 +25,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc           @dflt rmet rctl
+  lctl lalt lmet           spc           @dflt rmet rctl
 )
 
 (deflayer symbols ;;{{{1
