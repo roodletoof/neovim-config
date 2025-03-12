@@ -283,9 +283,16 @@ require'lazy'.setup{ --{{{1
 
             require'lspconfig'.gdscript.setup{}
 
+            function JumpToDefinition()
+                local tag_jump_success = pcall(vim.cmd, "tag " .. vim.fn.expand("<cword>"))
+                if not tag_jump_success then
+                    vim.lsp.buf.definition()
+                end
+            end
+
             vim.cmd [[
                 noremap ,rn :lua vim.lsp.buf.rename()<CR>
-                noremap ,fd :lua vim.lsp.buf.definition()<CR>
+                noremap ,fd :lua JumpToDefinition()<CR>
                 noremap ,ft :lua vim.lsp.buf.type_definition()<CR>
                 noremap ,fr :lua vim.lsp.buf.references()<CR>
                 noremap ,ca :lua vim.lsp.buf.code_action()<CR>
@@ -408,10 +415,10 @@ require'lazy'.setup{ --{{{1
     { 'hrsh7th/nvim-cmp', --{{{2
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'dcampos/nvim-snippy',
             'dcampos/cmp-snippy',
+            'quangnguyen30192/cmp-nvim-tags',
         },
         config = function()
             local cmp = require'cmp'
@@ -428,9 +435,10 @@ require'lazy'.setup{ --{{{1
                 },
                 sources = cmp.config.sources(
                     {
-                        { name = 'snippy', priority = 100000000000000000000 },
-                        { name = 'nvim_lsp', priority = 100},
-                        { name = 'path', priority = 1},
+                        { name = 'snippy',   priority = 100000000000000000000 },
+                        { name = 'nvim_lsp', priority = 1000000000},
+                        { name = 'tags',     priority = 100 },
+                        { name = 'path',     priority = 1},
                     }
                 ),
                 preselect = cmp.PreselectMode.None,
