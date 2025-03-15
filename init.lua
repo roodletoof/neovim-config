@@ -278,6 +278,22 @@ require'lazy'.setup{ --{{{1
                     require'lspconfig'.lua_ls.setup{
                         Lua = { runtime = { version = "LuaJIT" } }
                     }
+                end,
+                gopls = function()
+                    require'lspconfig'.gopls.setup{
+                        settings = {
+                            gopls = {
+                                templateExtensions = {'html', 'gotmpl'}
+                            },
+                        },
+                        filetypes = {
+                            'go',
+                            'gomod',
+                            'gowork',
+                            'gotmpl',
+                            'html'
+                        }
+                    }
                 end
             }
 
