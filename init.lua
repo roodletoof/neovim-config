@@ -326,7 +326,6 @@ require'lazy'.setup{ --{{{1
     { 'nvim-treesitter/nvim-treesitter', --{{{2
         config = function()
             require'nvim-treesitter.configs'.setup{
-                ensure_installed = "all",
                 sync_install = false,
                 auto_install = true,
                 indent = {
