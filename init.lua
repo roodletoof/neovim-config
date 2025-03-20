@@ -99,6 +99,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require'lazy'.setup{ --{{{1
+    { 'f-person/git-blame.nvim', --{{{2
+        keys = {',a'},
+        config = function ()
+            require'gitblame'.setup{
+                enabled = false,
+            }
+            vim.cmd[[
+                nnoremap ,a :GitBlameToggle<CR>
+            ]]
+        end
+    },
     { 'unblevable/quick-scope', --{{{2
         init = function()
             vim.cmd [[
@@ -164,7 +175,7 @@ require'lazy'.setup{ --{{{1
         end,
     },
     { 'folke/zen-mode.nvim', --{{{2
-        dependencies = {"folke/twilight.nvim"},
+        keys = {",z"},
         config = function ()
             vim.keymap.set(
                 'n',
@@ -294,7 +305,7 @@ require'lazy'.setup{ --{{{1
                             'html'
                         }
                     }
-                end
+                end,
             }
 
             require'lspconfig'.gdscript.setup{}
@@ -468,6 +479,7 @@ require'lazy'.setup{ --{{{1
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-ui-select.nvim',
         },
+        keys = {",f"},
         config = function()
             local a = require'telescope.actions'
             require'telescope'.setup{
