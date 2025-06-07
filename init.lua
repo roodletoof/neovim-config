@@ -242,19 +242,6 @@ require'lazy'.setup{ --{{{1
             vim.keymap.set("n", "_", actions.open_cwd.callback, { desc = actions.open_cwd.desc })
         end
     },
-    { 'github/copilot.vim', --{{{2
-        config = function()
-            -- q for qomplete ;)
-            vim.keymap.set('i', '<c-q>', 'copilot#Accept("\\<CR>")', {
-                expr = true,
-                replace_keycodes = false,
-            })
-            vim.g.copilot_no_tab_map = true
-            vim.keymap.set('n', '<c-q>', ':Copilot panel<CR>', { noremap = true })
-            vim.keymap.set('n', ',cd', ':Copilot disable<CR>', { noremap = true })
-            vim.keymap.set('n', ',ce', ':Copilot disable<CR>', { noremap = true })
-        end,
-    },
     { 'rafaelsq/nvim-goc.lua', --{{{2
         config = function ()
             local goc = require'nvim-goc'
