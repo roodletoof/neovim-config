@@ -292,13 +292,14 @@ require'lazy'.setup{ --{{{1
             require'mini.align'.setup()
         end,
     },
-    { 'sainnhe/everforest', --{{{2
+    { 'projekt0n/github-nvim-theme', --{{{2
+        name = 'github-theme',
         lazy = false,
         priority = 1000,
         config = function()
             vim.o.termguicolors = true
-            vim.g.everforest_enable_italic = true
-            vim.cmd.colorscheme('everforest')
+            require('github-theme').setup({})
+            vim.cmd('colorscheme github_dark_default')
         end,
     },
     { 'folke/zen-mode.nvim', --{{{2
