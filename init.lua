@@ -30,8 +30,6 @@ vim.cmd [[
     set sidescrolloff=999
     set guicursor=n-v-c:block-Cursor
 
-    colorscheme desert
-
     nnoremap ,co :copen<CR>
     nnoremap ,cc :cclose<CR>
     nnoremap ,cq :call setqflist([])<CR>:cclose<CR>
@@ -292,6 +290,15 @@ require'lazy'.setup{ --{{{1
         version = false,
         config = function()
             require'mini.align'.setup()
+        end,
+    },
+    { 'sainnhe/everforest', --{{{2
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.o.termguicolors = true
+            vim.g.everforest_enable_italic = true
+            vim.cmd.colorscheme('everforest')
         end,
     },
     { 'folke/zen-mode.nvim', --{{{2
