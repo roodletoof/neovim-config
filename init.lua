@@ -16,7 +16,6 @@ vim.cmd [[
     set exrc
     set secure
     set clipboard=unnamedplus
-    set cursorline
     set tabstop=4
     set shiftwidth=0
     set rnu
