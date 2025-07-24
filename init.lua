@@ -1,5 +1,13 @@
 vim.cmd[[
-    set clipboard=unnamedplus
+	set clipboard=unnamedplus
+	set nu
+	set rnu
+	nnoremap <c-p> <cmd>cprevious<cr>
+	nnoremap <c-n> <cmd>cnext<cr>
+	nnoremap ,cf <cmd>cfirst<cr>
+	nnoremap ,co <cmd>copen<cr>
+	nnoremap ,cc <cmd>cclose<cr>
+	nnoremap ,ff :find ./**/*
 ]]
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -15,8 +23,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require'lazy'.setup{ --{{{1
-    { 'sainnhe/everforest', --{{{2
+require'lazy'.setup{
+    { 'sainnhe/everforest',
         lazy = false,
         priority = 1000,
         config = function()
@@ -25,7 +33,7 @@ require'lazy'.setup{ --{{{1
             vim.cmd.colorscheme('everforest')
         end,
     },
-    { 'nvim-treesitter/nvim-treesitter', --{{{2
+    { 'nvim-treesitter/nvim-treesitter',
         config = function()
             require'nvim-treesitter.configs'.setup{
                 sync_install = false,
